@@ -9,8 +9,10 @@ import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 // import hello.core.member.MemoryMeberRepository;
+import lombok.RequiredArgsConstructor;
 
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
     // private final MemberRepository memberRepository = new
@@ -33,11 +35,13 @@ public class OrderServiceImpl implements OrderService {
     // this.discountPolicy = discountPolicy;
     // }
 
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        System.out.println("1. OrderServiceImpl.OrderServiceImpl()");
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+    // lombok 사용시 final 이 붙은 생성자를 기분으로 밑처럼 만들어줌
+    // public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy
+    // discountPolicy) {
+    // System.out.println("1. OrderServiceImpl.OrderServiceImpl()");
+    // this.memberRepository = memberRepository;
+    // this.discountPolicy = discountPolicy;
+    // }
 
     @Override
     public Order creatOrder(Long memberId, String itemName, int itemPrice) {
